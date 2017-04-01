@@ -3,7 +3,7 @@ int ledPin = 6;   // potentiometer connected to analog pin 3
 float time_1 = 0;
 float time_0 = micros();
 // ESC endpoints: 1060us - 1860us
-int on_time_duty_low = 1056; //low responsiveness starts at 1060 us
+int on_time_duty_low = 911; //low responsiveness starts at 1060 us, but ESCs must be armed first
 int on_time_duty_high = 1860; //rated high responsiveness ends at 1860 us
 float count = 0;
 float duty_cycle = 0;
