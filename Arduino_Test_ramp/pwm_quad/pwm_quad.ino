@@ -1,0 +1,41 @@
+int ledPin = 6;   // potentiometer connected to analog pin 3
+
+int val = 125;         // variable to store the read value
+
+float time_1 = 0;
+float time_0 = micros();
+int on_time_duty_low = 911;
+int on_time_duty_high = 2000;
+float count = 0;
+float duty_cycle = 0;
+
+void setup()
+
+{
+    pinMode(ledPin, OUTPUT);   // sets the pin as output
+
+}
+
+void loop()
+
+{
+  duty_cycle = on_time_duty_low + count;
+  
+  if((micros() - time_0) < duty_cycle){
+    //turn signal to one
+    digitalWrite(ledPin, 1);
+  }
+  else if((micros() - time_0) >= duty_cycle && (micros() - time_0) < 20064) {
+     //turn to zero
+     digitalWrite(ledPin, 0);
+  }
+  else if((micros() - time_0) >= 20064) {
+      time_0 = micros();
+      count+=0.1;
+  }
+  if(duty_cycle > on_time_duty_high) {
+   count = 0;
+  }
+  
+}
+
