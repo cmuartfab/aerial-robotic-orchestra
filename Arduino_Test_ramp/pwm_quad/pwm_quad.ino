@@ -1,7 +1,5 @@
 int ledPin = 6;   // potentiometer connected to analog pin 3
 
-int val = 125;         // variable to store the read value
-
 float time_1 = 0;
 float time_0 = micros();
 // ESC endpoints: 1060us - 1860us
