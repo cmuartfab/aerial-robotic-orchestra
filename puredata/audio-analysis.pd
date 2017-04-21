@@ -1,9 +1,9 @@
-#N canvas 594 132 1008 700 10;
+#N canvas 1004 167 1008 700 10;
 #X obj 151 68 adc~;
 #X obj 151 240 env~;
-#X floatatom 152 435 5 0 0 0 - - -, f 5;
+#X floatatom 152 435 5 0 0 0 - - -;
 #X obj 151 277 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4943 1;
+-1 -1 4922 1;
 #X obj 282 445 unpack;
 #X floatatom 282 495 0 0 0 0 - - -;
 #X floatatom 296 472 0 0 0 0 - - -;
@@ -12,9 +12,9 @@
 #X obj 227 140 lop~;
 #X text 77 68 audio input;
 #X text 265 141 low-pass filter;
-#X floatatom 248 109 5 0 0 0 - - -, f 5;
+#X floatatom 248 109 5 0 0 0 - - -;
 #X text 284 109 cut-off (Hz);
-#X floatatom 248 301 5 0 0 0 - - -, f 5;
+#X floatatom 248 301 5 0 0 0 - - -;
 #X text 284 301 cut-off (Hz);
 #X obj 227 332 hip~;
 #X text 265 333 hi-pass filter;
@@ -22,7 +22,18 @@
 #X msg 248 68 2000;
 #X obj 248 223 loadbang;
 #X msg 248 259 100;
-#X floatatom 227 435 5 0 0 0 - - -, f 5;
+#X floatatom 227 435 5 0 0 0 - - -;
+#X msg 21 489 close;
+#X msg 28 416 devices;
+#X obj 127 592 comport;
+#X msg 25 522 open 5;
+#X text 67 424;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 100 20 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 100 20 graph;
 #X connect 0 0 1 0;
 #X connect 0 0 9 0;
 #X connect 1 0 3 0;
@@ -40,3 +51,7 @@
 #X connect 19 0 12 0;
 #X connect 20 0 21 0;
 #X connect 21 0 14 0;
+#X connect 22 0 25 0;
+#X connect 23 0 25 0;
+#X connect 24 0 25 0;
+#X connect 26 0 25 0;
